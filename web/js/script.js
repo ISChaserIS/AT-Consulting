@@ -4,7 +4,7 @@ function hello(){
 	var ajax = new XMLHttpRequest();
 	var xxx = document.getElementById("textEdit2").value;
 	var zzz = document.getElementById("textEdit3").value;
-	ajax.open('POST', 'http://127.0.0.1:8080/JEETest/login', false);
+	ajax.open('POST', 'http://127.0.0.1:8080/JEETest/login', true);
 	var json = new Object();
 	json.login = xxx;
 	json.password = zzz;

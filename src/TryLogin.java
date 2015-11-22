@@ -12,23 +12,11 @@ import java.io.*;
 /**
  * Created by Olcha on 06.11.2015.
  */
+/*
+    Сервлет, который обрабатывает запросы методом POST. Он получается пароль и логин и проверяет их наличие в БД.
+*/
 @WebServlet("/login")
 public class TryLogin extends HttpServlet{
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
-
-        String username = req.getParameter("login");
-        String password = req.getParameter("password");
-
-        resp.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
-
-        if (username.equals("master") && password.equals("yoda")){
-            out.println("Welcome");
-        }else {
-            out.println("Incorrect login or password");
-        }
-    }
-
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         JsonReader reader = Json.createReader(new InputStreamReader(req.getInputStream()));
         JsonObject newJson = reader.readObject();
@@ -39,12 +27,8 @@ public class TryLogin extends HttpServlet{
 
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
-
-        if (username.equals("master") && password.equals("yoda")){
-            out.println("Welcome");
-        }else {
-            out.println("Incorrect login or password");
-        }
+        DatabaseHelper dbHelper = new DatabaseHelper();
+        out.print(dbHelper.checkUser(username, password));
     }
 
 }
