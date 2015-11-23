@@ -4,6 +4,7 @@
 public class Main {
     public static void main(String[] args){
         DatabaseHelper databaseHelper = new DatabaseHelper();
-        System.out.println(databaseHelper.checkUser("demonlord32","1234"));
+        System.out.println(databaseHelper.checkUser("aaaa","qwerty"));
+        //System.out.println(databaseHelper.insertUser(1,"aaaa","qwerty","aira","fdsfsd","w","1","1"));
     }
 }

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class MyTable {
     @Id
     @Column(name="id")
-    private String id;
+    private int id;
 
     @Column(name="login")
     private String login;
@@ -28,7 +28,7 @@ public class MyTable {
     @Column(name="gender")
     private String gender;
 
-    @Column(name="birth_day")
+    @Column(name="birth_date")
     private String birthDate;
 
     @Column(name="phone")
@@ -39,7 +39,7 @@ public class MyTable {
     //Сеттеры
 
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -73,7 +73,7 @@ public class MyTable {
 
     //Геттеры
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

@@ -45,7 +45,7 @@ public class DatabaseHelper {
     }
 
     //Добавление нового пользователя в БД, с заданными параметрами
-    public String insertUser(String id, String login, String password, String firstName,
+    public String insertUser(int id, String login, String password, String firstName,
                              String lastName, String gender, String birthDate, String phoneNumber){
         Session session = dbSessions.openSession();
         Transaction transaction = null;
