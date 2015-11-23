@@ -28,11 +28,13 @@ public class MyTable {
     @Column(name="gender")
     private String gender;
 
-    @Column(name="birth_date")
+    @Column(name="birth_day")
     private String birthDate;
 
     @Column(name="phone")
     private String phoneNumber;
+
+    public MyTable() {}
 
     //Сеттеры
 

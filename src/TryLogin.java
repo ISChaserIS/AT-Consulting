@@ -18,7 +18,7 @@ import java.io.*;
 @WebServlet("/login")
 public class TryLogin extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        JsonReader reader = Json.createReader(new InputStreamReader(req.getInputStream()));
+        JsonReader reader = Json.createReader(req.getInputStream());
         JsonObject newJson = reader.readObject();
         reader.close();
 

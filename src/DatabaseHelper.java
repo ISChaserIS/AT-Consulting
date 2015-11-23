@@ -24,20 +24,24 @@ public class DatabaseHelper {
 
     //Проверяем наличие пользователя в БД
     public String checkUser(String login, String password){
+        createSessionFactory();
         Session session = dbSessions.openSession();
         try {
-            List userList = session.createQuery("FROM MyTable").list();
-            for (Iterator iterator = userList.iterator(); iterator.hasNext();){
-                MyTable element = (MyTable)iterator.next();
-                if (element.getLogin() == login && element.getPassword() == password)
-                    return "Здравствуйте " + element.getFirst_name() + " " + element.getLast_name();
+            List usersList = session.createQuery("FROM MyTable").list();
+            for (Iterator iterator = usersList.iterator(); iterator.hasNext(); ) {
+                MyTable counter = (MyTable) iterator.next();
+
+                if (counter.getLogin().equals(login) && counter.getPassword().equals(password)){
+                    return "Добро пожаловать " + counter.getFirst_name() + " " + counter.getLast_name();
+                }
+
             }
         }catch (HibernateException e){
             e.printStackTrace();
         }finally {
             session.close();
         }
-        return "Простите, такой пользователь отсутствует в базе данных.";
+        return "Простите, но ваш логин или пароль введён неверно. Пожалуйста, введите снова пароль и логин";
     }
 
     //Добавление нового пользователя в БД, с заданными параметрами
